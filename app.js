@@ -1,6 +1,6 @@
 const  express            = require("express"),
        app                = express(),
-       port               = 2002,
+       port               = process.env.PORT || 3000,
        bodyParser         = require("body-parser"),
        mongoose           = require("mongoose"),
        Campground         = require("./models/campground"),
@@ -53,5 +53,5 @@ app.use(commentRoutes);
 app.use(campgroundRoutes);
 
 app.listen(port, () => {
-   console.log("Server on port 2002 started succesfully!");
+   console.log("Server has started succesfully");
 });
