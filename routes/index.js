@@ -4,24 +4,24 @@ const express  = require("express"),
       User     = require("../models/user")
 
 //Root Route
-router.get("/", function(req, res){
+router.get("/", (req, res) =>{
     res.render("landingpage");
 });
 
 //Show register form
-router.get("/register", function(req, res){
+router.get("/register", (req, res)=>{
     res.render("register");
 });
 
 //Handle sign up logic
-router.post("/register", function(req, res){
-    var newUser = new User({username: req.body.username});
-    User.register(newUser, req.body.password, function(err, user){
+router.post("/register", (req, res)=>{
+    let newUser = new User({username: req.body.username});
+    User.register(newUser, req.body.password, (err, user)=>{
         if(err){
             req.flash("error", err.message);
             return res.render("register");
         } 
-        passport.authenticate("local")(req, res, function(){
+        passport.authenticate("local")(req, res, ()=>{
             req.flash("success", "Welcome " + user.username);
             res.redirect("/campgrounds");
             console.log("You registered succesfully");
@@ -31,7 +31,7 @@ router.post("/register", function(req, res){
 });
 
 //Show loginn form
-router.get("/login", function(req, res){
+router.get("/login",(req, res) =>{
     res.render("login");
 });
 
@@ -47,11 +47,13 @@ router.post("/login",
 });
 
 //Logout Route 
-router.get("/logout", function(req, res){
+router.get("/logout", (req, res)=>{
     req.logout();//Coming from package
     req.flash("success", "Logged you out!");
     res.redirect("/campgrounds");
 });
+
+
 
 //Middleware
 function isLoggedIn(req, res, next){

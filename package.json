@@ -1,27 +1,42 @@
 {
-  "name": "yelpcamp",
+  "name": "NotePad",
   "version": "1.0.0",
-  "description": "full-stack web-site",
+  "description": "Wazzup Inc test",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "test": "mocha",
+    "start": "node app.js",
+    "build": "nexe"
   },
   "author": "Ismail Hasanov",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.10.6",
+    "moment": "^2.29.1",
+    "mongoose": "^5.10.12",
+    "nexe": "^3.3.7",
     "passport": "^0.4.1",
+    "passport-auth-token": "^1.0.1",
+    "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^6.0.1"
+    "passport-local-mongoose": "^6.0.1",
+    "pg": "^8.4.2",
+    "pg-connection-string": "^2.4.0"
   },
   "engines": {
-     "node": "10.19.0"
+    "node": "10.19.0"
+  },
+  "devDependencies": {
+    "artillery": "^1.6.1",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "request": "^2.88.2"
   }
 }
